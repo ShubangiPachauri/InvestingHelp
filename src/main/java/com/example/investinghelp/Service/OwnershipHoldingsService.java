@@ -4,18 +4,20 @@ import com.example.investinghelp.Models.OwnershipHoldings;
 import com.example.investinghelp.Repository.OwnershipHoldingsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class OwnershipHoldingsService {
-    private final OwnershipHoldingsRepository repository;
 
-    public void add(OwnershipHoldings holdings) {
-        repository.save(holdings);
+    private final OwnershipHoldingsRepository ownershipHoldingsRepository;
+
+    public OwnershipHoldings save(OwnershipHoldings holdings) {
+        return ownershipHoldingsRepository.save(holdings);
     }
 
-    public List<OwnershipHoldings> getAll() {
-        return repository.findAll();
+    public List<OwnershipHoldings> findAll() {
+        return ownershipHoldingsRepository.findAll();
     }
 }

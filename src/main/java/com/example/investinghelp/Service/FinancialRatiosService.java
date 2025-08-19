@@ -4,18 +4,20 @@ import com.example.investinghelp.Models.FinancialRatios;
 import com.example.investinghelp.Repository.FinancialRatiosRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class FinancialRatiosService {
-    private final FinancialRatiosRepository repository;
 
-    public void add(FinancialRatios ratios) {
-        repository.save(ratios);
+    private final FinancialRatiosRepository financialRatiosRepository;
+
+    public FinancialRatios save(FinancialRatios ratios) {
+        return financialRatiosRepository.save(ratios);
     }
 
-    public List<FinancialRatios> getAll() {
-        return repository.findAll();
+    public List<FinancialRatios> findAll() {
+        return financialRatiosRepository.findAll();
     }
 }
